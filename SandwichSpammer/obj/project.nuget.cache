@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z4oFOWiVgmM=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yanis\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1012",
+      "level": "Error",
+      "message": "Platform version is not present for one or more target frameworks, even though they have specified a platform: net9.0-android, net9.0-ios, net9.0-maccatalyst",
+      "projectPath": "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
+      "filePath": "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
+      "targetGraphs": []
+    }
+  ]
+}
