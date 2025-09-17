@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using SandwichSpammer.ViewModels;
 
 namespace SandwichSpammer;
 
@@ -14,11 +15,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-
-#if DEBUG
-        builder.Logging.AddDebug();
-#endif
-
+        builder.Services.AddSingleton<AccompanimentViewModel>();
         return builder.Build();
     }
 }
