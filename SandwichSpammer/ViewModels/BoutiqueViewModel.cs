@@ -8,14 +8,14 @@ namespace SandwichSpammer.ViewModels;
 public partial class BoutiqueViewModel : ObservableObject
 {
     [ObservableProperty]
-    private ObservableCollection<Amelioration> _ameliorations;
+    private ObservableCollection<Accompaniment> _ameliorations;
     
     [ObservableProperty]
-    private ObservableCollection<Amelioration> _malus;
+    private ObservableCollection<Accompaniment> _malus;
     
     public BoutiqueViewModel()
     {
-        Ameliorations = new ObservableCollection<Amelioration>();
+        Ameliorations = new ObservableCollection<Accompaniment>();
     }
     
     [RelayCommand]
