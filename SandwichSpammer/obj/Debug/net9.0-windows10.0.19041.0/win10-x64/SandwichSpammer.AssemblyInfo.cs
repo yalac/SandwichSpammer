@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SandwichSpammer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0654dce1310c4983240963b15f46358aa212c6cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a0f90102e0641ea91a3f9fd812c866b9cfbce2a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("SandwichSpammer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SandwichSpammer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

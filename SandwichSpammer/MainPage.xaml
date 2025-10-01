@@ -12,6 +12,7 @@
         <!-- <Entry Text="{Binding Accompaniment}" /> permet de saisir le nom de l'accompagnement noter dans accompaniment-->
         <!-- <Entry Text="{Binding Age, Mode=TwoWay}" Keyboard="Numeric" /> permet de saisir le clavier numérique et de rentrer un age sur tél-->
         <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
+        <ImageButton WidthRequest="100" HeightRequest="100" Source="sandwichclick.png" Command="{Binding AddAccompanimentCommand}" />
         <CollectionView ItemsSource="{Binding Accompaniments}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Accompaniment">
