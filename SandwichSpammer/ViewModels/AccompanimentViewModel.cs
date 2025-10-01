@@ -1,9 +1,9 @@
 using System.Collections.ObjectModel;
 using SandwichSpammer.Models;
-
-namespace SandwichSpammer.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+
+namespace SandwichSpammer.ViewModels;
 
 public partial class AccompanimentViewModel : ObservableObject
 {

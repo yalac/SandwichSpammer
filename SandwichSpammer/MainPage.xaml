@@ -6,6 +6,7 @@
              x:Class="SandwichSpammer.MainPage"
              x:DataType="vm:AccompanimentViewModel">
     
+    
     <VerticalStackLayout Padding="20" Spacing="10">
         <Entry Text="{Binding NewAccompanimentName, Mode=TwoWay}" Placeholder="Nom de l'accompagnement" />
         <!-- <Entry Text="{Binding Accompaniment}" /> permet de saisir le nom de l'accompagnement noter dans accompaniment-->
@@ -22,5 +23,5 @@
         </CollectionView>
         <!-- <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
         <Label Text="{Binding Accompaniments, StringFormat='Bonjour, vous manger du {0} !'}" FontSize="16" /> -->
-        </VerticalStackLayout>
+    </VerticalStackLayout>
 </ContentPage>
