@@ -22,8 +22,29 @@ public partial class DatabaseService
     {
         _database = new SQLiteConnection(DatabasePath, Flags);
         _database.CreateTable<Accompaniment>();
+        _database.CreateTable<GameState>();
         //Création des tables
     }
+    
+    
+    // Récupère le nombre de clics actuel
+    public int GetTotalClicks()
+    {
+        var state = _database.Table<GameState>().FirstOrDefault();
+        return state?.TotalClicks ?? 0;
+    }
+
+    // Sauvegarde le nouveau total
+    public void SaveTotalClicks(int newTotal)
+    {
+        var state = _database.Table<GameState>().FirstOrDefault();
+        if (state != null)
+        {
+            state.TotalClicks = newTotal;
+            _database.Update(state);
+        }
+    }
+    
     
     // ajouter des accompagnement
     public int AddBeurre(string name, string description, double calorie, int initialCost, int nbAmelioration, string image)

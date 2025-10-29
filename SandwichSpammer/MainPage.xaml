@@ -6,23 +6,30 @@
              x:Class="SandwichSpammer.MainPage"
              x:DataType="vm:AccompanimentViewModel">
     
-    
-    <VerticalStackLayout Padding="20" Spacing="10">
-        <Entry Text="{Binding NewAccompanimentName, Mode=TwoWay}" Placeholder="Nom de l'accompagnement" />
-        <!-- <Entry Text="{Binding Accompaniment}" /> permet de saisir le nom de l'accompagnement noter dans accompaniment-->
-        <!-- <Entry Text="{Binding Age, Mode=TwoWay}" Keyboard="Numeric" /> permet de saisir le clavier numérique et de rentrer un age sur tél-->
-        <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
-        <ImageButton WidthRequest="100" HeightRequest="100" Source="sandwichclick.png" Command="{Binding AddAccompanimentCommand}" />
-        <CollectionView ItemsSource="{Binding Accompaniments}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Accompaniment">
-                    <HorizontalStackLayout>
-                        <Label Text="{Binding Name}" />
-                    </HorizontalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        <!-- <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
+    <Grid RowDefinitions="Auto,*">
+        <!-- Barre fixe en haut -->
+        <HorizontalStackLayout Grid.Row="0" Padding="10" HorizontalOptions="Center">
+                <Label Text="{Binding Counter, StringFormat='{0} Calories'}" FontSize="16" />
+        </HorizontalStackLayout>
+
+        
+        <VerticalStackLayout Grid.Row="1" Padding="10" Spacing="10">
+            <Entry Text="{Binding NewAccompanimentName, Mode=TwoWay}" Placeholder="Nom de l'accompagnement" />
+            <!-- <Entry Text="{Binding Accompaniment}" /> permet de saisir le nom de l'accompagnement noter dans accompaniment-->
+            <!-- <Entry Text="{Binding Age, Mode=TwoWay}" Keyboard="Numeric" /> permet de saisir le clavier numérique et de rentrer un age sur tél-->
+            <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
+            <ImageButton WidthRequest="300" HeightRequest="300" Source="sandwichclick.png" Command="{Binding IncrementCounterCommand}" BackgroundColor="Transparent"/>
+            <CollectionView ItemsSource="{Binding Accompaniments}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Accompaniment">
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Name}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!-- <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
         <Label Text="{Binding Accompaniments, StringFormat='Bonjour, vous manger du {0} !'}" FontSize="16" /> -->
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

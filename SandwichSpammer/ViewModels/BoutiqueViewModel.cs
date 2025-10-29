@@ -19,8 +19,8 @@ public partial class BoutiqueViewModel : ObservableObject
     }
     
     [RelayCommand]
-    private void OpenMainPage()
+    private async Task OpenMainPage()
     {
-        Shell.Current.GoToAsync("MainPage", true);
+        await Shell.Current.GoToAsync("//MainPage", true);
     }
 }

@@ -11,5 +11,8 @@
         <Tab Title="Boutique" Icon="boutique.png">
             <ShellContent ContentTemplate="{DataTemplate pages:Boutique}" Route="Boutique" />
         </Tab>
+        <Tab Title="Reset" Icon="reset.png">
+            <ShellContent ContentTemplate="{DataTemplate pages:Reset}" Route="Reset" />
+        </Tab>
     </TabBar>
 </Shell>
