@@ -10,6 +10,4 @@ public class Accompaniment
     public string? Description { get; set; }
     public double Calorie { get; set; }
     public string? Image { get; set; }
-    public int InitialCost { get; set; }
-    public int NbAmelioration { get; set; }
 }

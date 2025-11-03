@@ -4,32 +4,56 @@
              xmlns:vm="clr-namespace:SandwichSpammer.ViewModels"
              xmlns:model="clr-namespace:SandwichSpammer.Models"
              x:Class="SandwichSpammer.MainPage"
-             x:DataType="vm:AccompanimentViewModel">
-    
-    <Grid RowDefinitions="Auto,*">
-        <!-- Barre fixe en haut -->
-        <HorizontalStackLayout Grid.Row="0" Padding="10" HorizontalOptions="Center">
-                <Label Text="{Binding Counter, StringFormat='{0} Calories'}" FontSize="16" />
-        </HorizontalStackLayout>
+             x:DataType="vm:AccompanimentViewModel"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-        
-        <VerticalStackLayout Grid.Row="1" Padding="10" Spacing="10">
-            <Entry Text="{Binding NewAccompanimentName, Mode=TwoWay}" Placeholder="Nom de l'accompagnement" />
-            <!-- <Entry Text="{Binding Accompaniment}" /> permet de saisir le nom de l'accompagnement noter dans accompaniment-->
-            <!-- <Entry Text="{Binding Age, Mode=TwoWay}" Keyboard="Numeric" /> permet de saisir le clavier numérique et de rentrer un age sur tél-->
-            <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
-            <ImageButton WidthRequest="300" HeightRequest="300" Source="sandwichclick.png" Command="{Binding IncrementCounterCommand}" BackgroundColor="Transparent"/>
-            <CollectionView ItemsSource="{Binding Accompaniments}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Accompaniment">
-                        <HorizontalStackLayout>
-                            <Label Text="{Binding Name}" />
-                        </HorizontalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <!-- <Button Text="Ajouter un accompagnement" Command="{Binding AddAccompanimentCommand}" />
-        <Label Text="{Binding Accompaniments, StringFormat='Bonjour, vous manger du {0} !'}" FontSize="16" /> -->
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Padding="12" Spacing="8" Grid.Row="0" HorizontalOptions="FillAndExpand">
+            <!-- Total calories -->
+            <Label x:Name="CaloriesLabel"
+                   Text="{Binding Counter, StringFormat='{0} Calories'}"
+                   Style="{DynamicResource HeaderLabelStyle}"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CaloriesLabel_Tapped" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+            <!-- Zone d'entrée demandée + bouton -->
+            <HorizontalStackLayout Spacing="8" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                <Entry Placeholder="Saisir accompagnement... (+100 cal/click)" Text="{Binding EntryText}" WidthRequest="220" HorizontalOptions="Start" />
+                <Button Text="Vérifier" Command="{Binding CheckEntryCommand}" />
+                <Label Text="{Binding EntryStatus}" x:Name="StatusLabel" VerticalOptions="Center" FontAttributes="Bold">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding EntryStatus}" Value="Succès">
+                            <Setter Property="TextColor" Value="LimeGreen" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding EntryStatus}" Value="Échec">
+                            <Setter Property="TextColor" Value="Tomato" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <AbsoluteLayout Grid.Row="1" Padding="10">
+                <!-- Bouton sandwich central -->
+                <ImageButton x:Name="SandwichButton"
+                             Source="sandwichclick.png"
+                             WidthRequest="300"
+                             HeightRequest="300"
+                             Command="{Binding IncrementCounterCommand}"
+                             BackgroundColor="Transparent"
+                             AbsoluteLayout.LayoutBounds="0.5,0.45,300,300"
+                             AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                <!-- Cheerleaders (visibilité contrôlée depuis code-behind via BoutiqueViewModel) -->
+                <Image x:Name="UpgradeCheerleader1" Source="cheerleaders.gif" HeightRequest="60" WidthRequest="60" IsAnimationPlaying="True" IsVisible="False" AbsoluteLayout.LayoutBounds="0.06,0.40,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                <Image x:Name="UpgradeCheerleader2" Source="cheerleaders.gif" HeightRequest="60" WidthRequest="60" IsAnimationPlaying="True" IsVisible="False" AbsoluteLayout.LayoutBounds="0.93,0.32,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" />
+                <Image x:Name="UpgradeCheerleader3" Source="cheerleaders.gif" HeightRequest="60" WidthRequest="60" IsAnimationPlaying="True" IsVisible="False" AbsoluteLayout.LayoutBounds="0.88,0.65,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                <Label Text="{Binding ClickBonus, StringFormat='{0} cal/click'}" FontSize="14" HorizontalOptions="End" />
+            </AbsoluteLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>

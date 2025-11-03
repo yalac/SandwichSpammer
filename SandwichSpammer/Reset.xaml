@@ -5,11 +5,13 @@
              xmlns:vm="clr-namespace:SandwichSpammer.ViewModels"
              xmlns:model="clr-namespace:SandwichSpammer.Models"
              x:Class="SandwichSpammer.Reset"
-             x:DataType="vm:AccompanimentViewModel">
+             x:DataType="vm:AccompanimentViewModel"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
     
     <ContentPage.Content>
         <VerticalStackLayout Padding="20" Spacing="10">
-            <Button Text="Reset ses Calories" Command="{Binding Path=ResetCalorieAndMainPageCommand}"></Button>
+            <Button Text="Reset ses Calories et ses Améliorations" Command="{Binding Path=ResetCalorieAndMainPageCommand}" />
+            <Button Text="Reset ses Accompagnements" Command="{Binding Path=ResetAccompanimentsCommand}" />
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

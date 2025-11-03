@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SandwichSpammer.ViewModels"
+             xmlns:model="clr-namespace:SandwichSpammer.Models"
+             x:Class="SandwichSpammer.DetailPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Label Text="Détails du jeu" Style="{DynamicResource HeaderLabelStyle}" />
+
+            <Label Text="{Binding Counter, StringFormat='Calories : {0}'}" />
+            <Label Text="{Binding ClickBonus, StringFormat='Calories / click : {0}'}" />
+
+            <BoxView HeightRequest="1" Color="Gray" />
+            <Label Text="Améliorations" FontAttributes="Bold" />
+            <Label Text="{Binding Upgrade1Count, StringFormat='Farm achetées : {0}'}" />
+            <Label Text="{Binding Upgrade1Cost, StringFormat='Coût Farm : {0}'}" />
+            <Label Text="{Binding Upgrade2Count, StringFormat='Cheerleaders achetées : {0}'}" />
+            <Label Text="{Binding Upgrade2Cost, StringFormat='Coût Cheerleaders : {0}'}" />
+            
+            <BoxView HeightRequest="1" Color="Gray" />
+            <Label Text="{Binding FoundCount, StringFormat='Nombre d\'accompagnement trouvé : {0}'}" FontAttributes="Bold" />
+            <Label Text="{Binding FoundAccompaniment, StringFormat='Accompagnement : {0}'}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

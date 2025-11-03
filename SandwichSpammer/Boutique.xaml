@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:SandwichSpammer.ViewModels"
              xmlns:model="clr-namespace:SandwichSpammer.Models"
              x:Class="SandwichSpammer.Boutique"
-             x:DataType="vm:BoutiqueViewModel">
-    
-    <ContentPage.Content>
-        <VerticalStackLayout Padding="20" Spacing="10">
-            <Button Text="Page d'acceuil" Command="{Binding Path=OpenMainPageCommand}"></Button>
+             x:DataType="vm:BoutiqueViewModel"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <Grid RowDefinitions="Auto,*">
+        <HorizontalStackLayout Grid.Row="0" Padding="10" HorizontalOptions="Center">
+            <Label Text="{Binding Counter, StringFormat='{0} Calories'}" FontSize="16" Style="{DynamicResource HeaderLabelStyle}" />
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Padding="10" Spacing="10">
+            <Label Text="Farm (+2)" FontAttributes="Bold" />
+            <Label Text="{Binding Upgrade1Count, StringFormat='Acheté : {0} fois'}" />
+            <Label Text="{Binding Upgrade1Cost, StringFormat='Coût actuel : {0} Calories'}" />
+            <Button Text="Amélioration" Command="{Binding GainParClickCommand}" />
+
+            <BoxView HeightRequest="1" Color="Gray" Margin="0,10"/>
+            <Label Text="Cheerleaders (+10)" FontAttributes="Bold" />
+            <Label Text="{Binding Upgrade2Count, StringFormat='Acheté : {0} fois'}" />
+            <Label Text="{Binding Upgrade2Cost, StringFormat='Coût : {0} Calories'}" />
+            <Button Text="Acheter Cheerleaders" Command="{Binding BuyCheerleadersCommand}" />
         </VerticalStackLayout>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>
