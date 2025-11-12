@@ -1,27 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj": {}
+    "C:\\Cours\\SLAM\\Szylobryt\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj": {
+    "C:\\Cours\\SLAM\\Szylobryt\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
+        "projectUniqueName": "C:\\Cours\\SLAM\\Szylobryt\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
         "projectName": "SandwichSpammer",
-        "projectPath": "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
-        "packagesPath": "C:\\Users\\yanis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yanis\\RiderProjects\\SandwichSpammer\\SandwichSpammer\\obj\\",
+        "projectPath": "C:\\Cours\\SLAM\\Szylobryt\\SandwichSpammer\\SandwichSpammer\\SandwichSpammer.csproj",
+        "packagesPath": "C:\\Users\\ibang\\.nuget\\packages\\",
+        "outputPath": "C:\\Cours\\SLAM\\Szylobryt\\SandwichSpammer\\SandwichSpammer\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\yanis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ibang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0-android",
           "net9.0-windows10.0.19041.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -57,17 +63,21 @@
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[9.0.111, )"
+              "version": "[9.0.120, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )",
+              "version": "[9.0.11, )",
               "autoReferenced": true
+            },
+            "Plugin.Maui.Audio": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             },
             "SQLiteNetExtensions": {
               "target": "Package",
@@ -89,12 +99,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[9.0.10, 9.0.10]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.Android": {
               "privateAssets": "all"
@@ -103,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         },
         "net9.0-windows10.0.19041": {
           "targetAlias": "net9.0-windows10.0.19041.0",
@@ -114,11 +118,15 @@
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.10, )"
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[9.0.111, )"
+              "version": "[9.0.120, )"
+            },
+            "Plugin.Maui.Audio": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             },
             "SQLiteNetExtensions": {
               "target": "Package",
@@ -154,7 +162,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

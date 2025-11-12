@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Microsoft.Maui.Controls;
+using Plugin.Maui.Audio;
 using SandwichSpammer.Models;
 using SandwichSpammer.ViewModels;
 
@@ -9,9 +10,12 @@ public partial class MainPage : ContentPage
 {
     private readonly BoutiqueViewModel? _boutiqueVm;
 
-    public MainPage(AccompanimentViewModel viewModel, BoutiqueViewModel boutiqueViewModel)
+    public IAudioManager AudioManager { get; }
+
+    public MainPage(AccompanimentViewModel viewModel, BoutiqueViewModel boutiqueViewModel, IAudioManager audioManager)
     {
         InitializeComponent();
+        this.AudioManager = audioManager;
         BindingContext = viewModel;
 
         _boutiqueVm = boutiqueViewModel;
@@ -22,6 +26,12 @@ public partial class MainPage : ContentPage
             SetCheerleadersVisible(_boutiqueVm.CheerleadersVisible);
             _boutiqueVm.PropertyChanged += BoutiqueVm_PropertyChanged;
         }
+    }
+
+    private async void PlayAudioButton(object sender, EventArgs e)
+    {
+        var player = AudioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("click.mp3"));
+        player.Play();
     }
 
     protected override void OnAppearing()
