@@ -10,6 +10,8 @@ using CommunityToolkit.Mvvm.Input;
 using SandwichSpammer.Database;
 using Microsoft.Maui.Controls;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Messaging;
+using SandwichSpammer.Messages;
 
 namespace SandwichSpammer.ViewModels;
 
@@ -97,8 +99,8 @@ public partial class AccompanimentViewModel : ObservableObject
         
         ClickBonus = _databaseService.GetClickBonus();
         Counter = _databaseService.GetTotalClicks();
-        
-        MessagingCenter.Send(this, "AccompanimentsReset");
+
+        WeakReferenceMessenger.Default.Send(new AccompanimentsResetMessage());
         await Shell.Current.GoToAsync("//MainPage", true);
     }
 
@@ -147,7 +149,7 @@ public partial class AccompanimentViewModel : ObservableObject
         {
             // Mettre à jour le ClickBonus local depuis la DB (ajout de +100 effectué côté DB)
             ClickBonus = _databaseService.GetClickBonus();
-            MessagingCenter.Send(this, "AccompanimentChecked", found);
+            WeakReferenceMessenger.Default.Send(new AccompanimentCheckedMessage(found));
         }
     }
     

@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using SandwichSpammer.Database;
 using SandwichSpammer.Models;
 using Microsoft.Maui.Controls;
+using CommunityToolkit.Mvvm.Messaging;
+using SandwichSpammer.Messages;
 
 namespace SandwichSpammer.ViewModels;
 
@@ -43,14 +45,14 @@ public partial class DetailViewModel : ObservableObject
         _boutiqueVm = boutiqueVm;
 
         Refresh();
-        
+
         // Si une nouvelle entrée est ajoutée en direct, recharger les valeurs depuis la DB
-        MessagingCenter.Subscribe<AccompanimentViewModel, Accompaniment>(this, "AccompanimentChecked", (sender, accompaniment) =>
-        {
-            // on recharge depuis la DB pour être sûr d'afficher la liste complète et le compteur unique
-            Refresh();
-        });
-    }
+        WeakReferenceMessenger.Default.Register<AccompanimentCheckedMessage>(this, (recipient, message) =>
+            {
+                // Recharge la liste et le compteur depuis la base de données.
+                Refresh();
+            });
+        }
 
     public void Refresh()
     {
